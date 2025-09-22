@@ -1,0 +1,578 @@
+/* --- MODERN BLOG STYLES BY GEMINI (Enhanced Version) --- */
+
+/* 1. Google Fonts & Custom Properties (Variables) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --primary-color: #4A90E2; /* A vibrant blue */
+    --primary-hover: #3A7BC8;
+    --secondary-color: #F7CAC9; /* Light accent color */
+    --dark-color: #2c3e50; /* Darker charcoal for text */
+    --light-color: #ffffff;
+    --bg-color-light: #fefefe; /* Very soft off-white */
+    --bg-color-grey: #f0f2f5; /* Light grey for sections */
+    --grey-text: #7f8c8d;
+    --border-color: #e0e6eb;
+    --shadow-light: 0 5px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+}
+
+/* 2. General & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color-light);
+    color: var(--dark-color);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Headings and Paragraphs */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--dark-color);
+    margin-bottom: 0.8rem;
+}
+p {
+    margin-bottom: 1rem;
+    color: var(--grey-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* 3. Header & Navigation */
+header {
+    background: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+    transition: padding 0.3s ease;
+}
+
+header .logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+    color: var(--dark-color);
+}
+
+/* 4. Search Bar */
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 2rem;
+}
+
+.search-container input {
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 450px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-color-light);
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+}
+
+/* 5. Section & Container Styles */
+.section {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--bg-color-light);
+    position: relative;
+}
+
+.section:nth-of-type(odd) {
+    background-color: var(--bg-color-grey);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.subtitle {
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--grey-text);
+    line-height: 1.6;
+}
+
+/* Home Section (Hero) */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/Notes2.png') no-repeat center center/cover;
+    color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 8rem 5%;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-section h1 {
+    font-size: 3.8rem;
+    color: var(--light-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+/* 6. Posts Page Styling (Post Cards) */
+#posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.post-card {
+    background: var(--light-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.post-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.post-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.post-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    color: var(--dark-color);
+}
+
+.post-card .post-meta {
+    color: var(--grey-text);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.post-card p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+}
+
+.read-more {
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* 7. Forms & Buttons (Contact & Comments) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 650px;
+    margin: 2rem auto 0 auto;
+    padding: 2rem;
+    background: var(--light-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+}
+
+form input, form textarea {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-color-light);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+form button {
+    padding: 1rem;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+#contact-response {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* 8. Comments Section */
+.comments-section {
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+.comments-section h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--dark-color);
+}
+
+.comments-list {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.comment-item {
+    border-top: 1px solid var(--border-color);
+    padding: 0.8rem 0;
+    color: var(--grey-text);
+}
+
+.comment-item:first-child {
+    border-top: none;
+}
+.comment-item strong {
+    color: var(--dark-color);
+}
+
+
+/* 9. Footer (Significantly Enhanced) */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    background: var(--dark-color);
+    color: var(--light-color);
+    margin-top: 5rem;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.social-icons a {
+    color: var(--light-color);
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* General utility classes */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 2rem; }
+
+
+/* 10. Responsive Design */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    #posts-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem 5%;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--light-color);
+        box-shadow: var(--shadow-light);
+        border-top: 1px solid var(--border-color);
+        padding: 1rem 0;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 1rem 1.5rem;
+        display: block;
+        border-bottom: 1px solid var(--border-color);
+        text-align: left;
+    }
+    
+    nav ul li a::after {
+        display: none;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    
+    .search-container {
+        display: none;
+    }
+    
+    .section {
+        padding: 4rem 5%;
+    }
+
+    .hero-section {
+        min-height: 60vh;
+        padding: 6rem 5%;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .hero-section p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .post-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+    .social-icons a {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 0.95rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .primary-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .post-card h3 {
+        font-size: 1.2rem;
+    }
+    footer p {
+        font-size: 0.9rem;
+    }
+}
