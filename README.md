@@ -59,4 +59,4 @@ To run this project locally:
 `-- README.md           # This file
 
 ## Project Status
-This website was developed as part of an internship project. It serves as a portfolio piece showcasing skills in frontend web development.
+This website was developed as part of an internship project. It serves as a portfolio piece showcasing skills in full stack web development.
